@@ -135,8 +135,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 #alias tree='tree -C'
-alias lt='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
-alias lf="find | sed 's|[^/]*/|- |g'"
 #alias targz='tar -cvfz'
 #alias untargz='tar -xvfz'
 alias hgrep='history|grep'
@@ -179,6 +177,12 @@ alias elog='tail -n 50 /var/log/apache2/error.log'
 # Functions
 find_grep() { sudo find $1 -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*/.svn" -prune -o -path "*~" -prune -o -print0 |sudo xargs -0 grep -si --color=always "$2"; }
 alias fxgrep=find_grep
+
+list_tree() { find $1 -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/" }
+alias lt=list_tree
+
+list_files() { find $1 | sed 's|[^/]*/|- |g' }
+alias lf=list_files
 
 proj_cc() {
     CURRENT=`pwd`;
