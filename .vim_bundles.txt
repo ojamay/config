@@ -1,0 +1,3 @@
+crusoexia/vim-monokai
+scrooloose/nerdtree
+Lokaltog/vim-powerline
