@@ -137,13 +137,7 @@ alias l='ls -CF'
 #alias tree='tree -C'
 #alias targz='tar -cvfz'
 #alias untargz='tar -xvfz'
-alias hgrep='history|grep'
 alias fxgrep_content='sudo find . -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*/.svn" -prune -o -path "*~" -prune -o -print0 |sudo xargs -0 grep -si --color=always '
-
-# git
-alias git_diff='git diff --ignore-space-change'
-alias git_graph="git log --graph --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %C(white bold)%s%Creset %C(white dim)(by %an %ar)%Creset' --all"
-alias git_list_branches="git log --graph --simplify-by-decoration --pretty=format:'%d' --all"
 
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
 alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[0] "'
