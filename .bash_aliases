@@ -10,9 +10,6 @@ alias hgrep='history | grep'
 list_tree() { find $1 -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"; }
 alias lt=list_tree
 
-#list_files() { find $1 | sed 's|[^/]*/|- |g'; }
-#alias lf=list_files
-
 alias phpfix='php-cs-fixer fix . --show-progress estimating --verbose --rules=@PSR2,@PSR1,@Symfony,-phpdoc_annotation_without_dot,-phpdoc_summary,-trailing_comma_in_multiline_array,-pre_increment,-yoda_style'
 
 services_restart() {
