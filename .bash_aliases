@@ -1,6 +1,3 @@
-#fgrep() { find $1 -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*/.svn" -prune -o -path "*~" -prune -o -print0 | xargs -0 grep -s --color=always "$2"; }
-#alias fgrep=fgrep
-
 alias gitlog='git log --graph --decorate --pretty=oneline --abbrev-commit'
 alias gitlogall="git log --graph --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %C(normal)%s%Creset %C(cyan dim)(by %an %ar)%Creset' --all"
 alias gitlogbranch="git log --graph --simplify-by-decoration --pretty=format:'%d' --all"
