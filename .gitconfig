@@ -1,1 +1,29 @@
-
+[user]
+    email = ### 
+    name = ###
+[core]
+    editor = vim
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[color "status"]
+    changed = yellow
+    added = green
+    deleted = red
+    untracked = blue
+[http]
+    sslverify = false
+    #proxy = http://###:8080
+[https]
+    sslverify = false
+    #proxy = http://###:8080
+[url "https://"]
+    insteadOf = git://
+[url "https://github.com/"]
+    insteadOf = git@github.com:
+[core]
+    excludesfile = ~/.gitignore
+[push]
+    default = simple
