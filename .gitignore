@@ -1,0 +1,6 @@
+.vim/bundle/
+*.swp
+
+*.pyc
+q
+/.idea
