@@ -160,3 +160,8 @@ fi
 if [ -f  ~/.git-completion.bash ]; then
         source ~/.git-completion.bash
 fi
+
+# Add custom prompt
+if [ -f  ~/.bash_prompt ]; then
+    source ~/.bash_prompt
+fi
