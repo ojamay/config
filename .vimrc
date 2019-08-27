@@ -238,6 +238,7 @@ inoremap <C-U> <C-G>u<C-U>
 " restore opened file
 map <F2> :mksession! ~/vim_session <cr> " Quick write session with F2
 map <F3> :source ~/vim_session <cr>     " And load session with F3
+
 " filter non-printable characters from the paste buffer
 " useful when pasting from some gui application
 nmap <leader>p :let @* = substitute(@*,'[^[:print:]]','','g')<cr>"*p
