@@ -54,7 +54,9 @@
     pd = diff --patience
     pr = pull --rebase
     wip = commit -m 'wip'
+
     sync = "!f() { branch=$(git name-rev --name-only HEAD); echo Syncing $branch with master && git checkout master && git pull --ff-only && git checkout $branch && git rebase master && git submodule update --init --recursive; }; f"
+    
     outgoing = log origin/master..HEAD
     incoming = "!git fetch $1; git log HEAD..$1/master"
     su = submodule update --init --recursive
