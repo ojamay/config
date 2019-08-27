@@ -3,6 +3,7 @@
     name = ###
 [core]
     editor = vim
+    excludesfile = ~/.gitignore
 [color]
     diff = auto
     status = auto
@@ -23,7 +24,37 @@
     insteadOf = git://
 [url "https://github.com/"]
     insteadOf = git@github.com:
-[core]
-    excludesfile = ~/.gitignore
 [push]
     default = simple
+[diff]
+    # Use mnemonic prefixes (index, work tree, commit, object) instead of the standard a and b notation
+    mnemonicprefix = true
+[merge]
+    tool = vimdiff
+    stat = true
+[alias]
+    alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+    amend = commit --amend
+    b = branch
+    co = checkout
+    ci = commit
+    f = fetch
+    m = merge
+    s = status
+    st = stash
+    lg = log --graph --pretty=format:'%C(yellow)%h%Creset %Creset%Cblue%an%Creset %s %Cgreen(%cr)%Cred%d%Creset' --abbrev-commit
+    lga = "!git lg --all"
+    lgf = log --decorate --graph --abbrev-commit --date=relative
+    datelg = log --graph --pretty=format:'%C(yellow)%h%Creset %Creset%Cblue%an%Creset %s %Cgreen(%ci)%Cred%d%Creset' --abbrev-commit
+    gg = grep -A5 -B5 --color -n
+    cp = cherry-pick
+    ire = rebase -i
+    ds = diff --cached
+    dw = diff --ignore-space-change
+    pd = diff --patience
+    pr = pull --rebase
+    wip = commit -m 'wip'
+    sync = "!f() { branch=$(git name-rev --name-only HEAD); echo Syncing $branch with master && git checkout master && git pull --ff-only && git checkout $branch && git rebase master && git submodule update --init --recursive; }; f"
+    outgoing = log origin/master..HEAD
+    incoming = "!git fetch $1; git log HEAD..$1/master"
+    su = submodule update --init --recursive
