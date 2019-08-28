@@ -6,6 +6,9 @@
 *.log
 .DS_Store
 
+# codemirror
+q
+
 # eclipse
 .project
 .metadata
@@ -30,6 +33,3 @@ local.properties
 # vim
 .*.swp
 .vim/bundle/
-
-# codemirror
-q
