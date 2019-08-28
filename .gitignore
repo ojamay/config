@@ -20,43 +20,14 @@
 # Codemirror ???
 q
 
-# eclipse project file
-.settings/
-.classpath
-.project
-
-# eclipse
-.project
-.metadata
-bin/
-local.properties
-.classpath
-.settings/
-.loadpath
-
-# IntelliJ project files 
-*.iml
-*.iws
-*.ipr
-.idea/
-
-# Maven 
-target/
-
-# NetBeans specific
-**/nbproject/private/
-**/nbproject/Makefile-*.mk
-**/nbproject/Package-*.bash
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+# diff
+*.patch
+*.diff
 
 # Phpstorm
 /.idea
 
-# Php
+# PHP CS Fixer
 /.php_cs.cache
 
 # Python
@@ -79,32 +50,62 @@ pom.xml.releaseBackup
 pom.xml.tag
 
 #
-# OSX
+# OS
 #
 
-# General
+# OS-specific files
 .DS_Store
-.AppleDouble
-.LSOverride
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Icon must end with two \r
-Icon
+# Android
 
-# Thumbnails
+# Linux
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+# OSX ***
+.DS_Store
 ._*
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+# Windows
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
