@@ -1,13 +1,29 @@
-# general
-#tmp/**
-#tmp/**/*
-*.tmp
-*.bak
-*.log
-.DS_Store
+# https://github.com/github/gitignore/tree/master/Global
 
-# codemirror
+# Ansible
+*.retry
+
+# Binaries
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.war
+*.ear
+*.sar
+*.class
+
+# Codemirror ???
 q
+
+# eclipse project file
+.settings/
+.classpath
+.project
 
 # eclipse
 .project
@@ -18,18 +34,77 @@ local.properties
 .settings/
 .loadpath
 
-# intelliJ
+# IntelliJ project files 
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# Maven 
+target/
+
+# NetBeans specific
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Phpstorm
 /.idea
 
-# php
+# Php
 /.php_cs.cache
 
-# python
+# Python
 *.pyc
 
-# svn
+# Svn
 .svn
 
-# vim
+# Vim
 .*.swp
 .vim/bundle/
+
+# Misc
+*.tmp
+*.bak
+*.log
+*.swp
+release.properties
+pom.xml.releaseBackup
+pom.xml.tag
+
+#
+# OSX
+#
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
