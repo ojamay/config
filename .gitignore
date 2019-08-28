@@ -1,6 +1,34 @@
-.vim/bundle/
-*.swp
+# general
+#tmp/**
+#tmp/**/*
+*.tmp
+*.bak
+*.log
+.DS_Store
 
-*.pyc
-q
+# eclipse
+.project
+.metadata
+bin/
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# intelliJ
 /.idea
+
+# php
+/.php_cs.cache
+
+# python
+*.pyc
+
+# svn
+.svn
+
+# vim
+.*.swp
+.vim/bundle/
+
+#q
