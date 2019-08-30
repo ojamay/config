@@ -129,58 +129,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-#alias tree='tree -C'
-#alias targz='tar -cvfz'
-#alias untargz='tar -xvfz'
-alias fxgrep_content='sudo find . -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*/.svn" -prune -o -path "*~" -prune -o -print0 |sudo xargs -0 grep -si --color=always '
-
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
 alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[0] "'
 
 alias netstat-listen='netstat -lepunt'
 alias whereami='curl ipinfo.io'
-
-# Sudo
-#alias php='sudo php'
-#alias vim='sudo vim'
-#alias svn='sudo svn'
-
-# Logs
-alias alog='tail -n 50 /var/log/apache2/access.log'
-alias elog='tail -n 50 /var/log/apache2/error.log'
-
-# Project PROJECT
-#alias oss_p='cd ~/PROJECT/'
-#alias oss_symfony='cd ~/PROJECT/var/www/domain.tld/'
-#alias oss_sonata='cd ~/PROJECT/var/www/domain.tld/src/Customer/AppBundle/'
-
-# PostgreSQL
-#export PG_HOME="/usr/local/pgsql"
-#export PGDATA="/usr/local/pgsql/data/"
-# export PG_HOME="/Library/PostgreSQL8"
-
-# MySQL
-#alias mysql=/usr/local/mysql/bin/mysql
-#alias mysqladmin=/usr/local/mysql/bin/mysqladmin
-
-# Functions
-find_grep() { sudo find $1 -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*/.svn" -prune -o -path "*~" -prune -o -print0 |sudo xargs -0 grep -si --color=always "$2"; }
-alias fxgrep=find_grep
-
-list_tree() { find $1 -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/" }
-alias lt=list_tree
-
-list_files() { find $1 | sed 's|[^/]*/|- |g' }
-alias lf=list_files
-
-proj_cc() {
-    CURRENT=`pwd`;
-    cd ~/PROJECT/var/www/domain.tld/;
-    sudo ~/PROJECT/var/www/domain.tld/cc.bash;
-    sudo chown -R ${USER}:root ~/PROJECT;
-    cd ${CURRENT};
-}
-alias proj_cc=proj_cc
