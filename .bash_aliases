@@ -6,7 +6,7 @@ alias phpfix='php-cs-fixer fix . --show-progress estimating --verbose --rules=@P
 #alias tree=tree
 #alias treed=treed
 
-# project
+# Project
 
 alias services_restart="
     sudo service nginx restart;
