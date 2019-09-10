@@ -17,6 +17,6 @@ echo "$(tput setaf 2)
 ( : '~'.~.'~' : ) Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
  ~ .~ (   ) ~. ~  Processus en exec..: `ps ax | wc -l | tr -d " "`
   (  : '~' :  )   Adresses IP........: `/sbin/ifconfig eth0 | /bin/grep "inet adr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` / `curl -s http://myexternalip.com/raw`
-   '~ .~~~. ~'    Espace Disque......: `df -Pkh | grep -E '^/dev/root' | awk '{ print $4 }'` (Libre) / `df -Pkh | grep -E '^/dev/root' | awk '{ print $2 }'` (Total)$(tput setaf 1)
+   '~ .~~~. ~'    Espace Disque......: Total: `df -Pkh | grep -E '^/dev/root' | awk '{ print $2 }'` | Utilisé: `df -Pkh | grep -E '^/dev/root' | awk '{ print $3 }'` (`df -Pk | grep -E '^/dev/root' | awk '{ print $5 }'`)| Libre: `df -Pkh | grep -E '^/dev/root' | awk '{ print $4 }'`$(tput setaf 1)
        '~'
 $(tput sgr0)"
