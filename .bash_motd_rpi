@@ -16,7 +16,7 @@ echo "$(tput setaf 2)
  ~ (   ) (   ) ~  Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
 ( : '~'.~.'~' : ) Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
  ~ .~ (   ) ~. ~  Running Processes..: `ps ax | wc -l | tr -d " "`
-  (  : '~' :  )   IP Addresses.......: `/sbin/ifconfig eth0 | /bin/grep "inet adr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` and `wget -q -O - http://icanhazip.com/ | tail`
+  (  : '~' :  )   IP Addresses.......: LAN: `/sbin/ifconfig eth0 | /bin/grep "inet adr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` WAN: `curl -s http://myexternalip.com/raw`
    '~ .~~~. ~'    Free Disk Space....: `df -Pkh | grep -E '^/dev/root' | awk '{ print $4 }'` (`df -Pk | grep -E '^/dev/root' | awk '{ print $5 }'` used) on /dev/root$(tput setaf 1)
        '~'
 $(tput sgr0)"
