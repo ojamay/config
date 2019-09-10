@@ -13,10 +13,10 @@ echo "$(tput setaf 2)
   '. \ ' ' / .'   `uname -srmo`$(tput setaf 1)
    .~ .~~~..~.
   : .~.'~'.~. :   Uptime.............: ${UPTIME}
- ~ (   ) (   ) ~  Memoire............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
-( : '~'.~.'~' : ) Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
+ ~ (   ) (   ) ~  Adresses IP........: `/sbin/ifconfig eth0 | /bin/grep "inet adr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` / `curl -s http://myexternalip.com/raw`
+( : '~'.~.'~' : ) Charge moyenne.....: ${one} (1m), ${five} (5min), ${fifteen} (15min)
  ~ .~ (   ) ~. ~  Processus en exec..: `ps ax | wc -l | tr -d " "`
-  (  : '~' :  )   Adresses IP........: `/sbin/ifconfig eth0 | /bin/grep "inet adr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1` / `curl -s http://myexternalip.com/raw`
-   '~ .~~~. ~'    Espace Disque......: Total: `df -Pkh | grep -E '^/dev/root' | awk '{ print $2 }'` | Utilisé: `df -Pkh | grep -E '^/dev/root' | awk '{ print $3 }'` (`df -Pk | grep -E '^/dev/root' | awk '{ print $5 }'`)| Libre: `df -Pkh | grep -E '^/dev/root' | awk '{ print $4 }'`$(tput setaf 1)
+  (  : '~' :  )   Memoire (RAM)......: Total: `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB, Libre: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB
+   '~ .~~~. ~'    Espace Stockage....: Total: `df -Pkh | grep -E '^/dev/root' | awk '{ print $2 }'`, Utilisé: `df -Pkh | grep -E '^/dev/root' | awk '{ print $3 }'` (`df -Pk | grep -E '^/dev/root' | awk '{ print $5 }'`), Libre: `df -Pkh | grep -E '^/dev/root' | awk '{ print $4 }'`$(tput setaf 1)
        '~'
 $(tput sgr0)"
