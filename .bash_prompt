@@ -53,8 +53,13 @@ else
     RESET="\033[m"
 fi
 
+# Add current git branch name
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 if [ "$(id -u)" != 0 ]; then
-    PS1="\[\$BLUE\]\u\[\$RESET\]@\[\$BLUE\]\h\[\$RESET\] \W \[\$BLUE\]>\[\$RESET\] "
+    PS1="\[\$BLUE\]\t \u\[\$RESET\]@\[\$BLUE\]\h\[\$RESET\] \W\[\$YELLOW\]\$(parse_git_branch) \[\$BLUE\]>\[\$RESET\] "
 else
-    PS1="\[\$ORANGE\]\u\[\$RESET\]@\[\$ORANGE\]\h\[\$RESET\] \W \[\$ORANGE\]>\[\$RESET\] "
+    PS1="\[\$ORANGE\]\t \u\[\$RESET\]@\[\$ORANGE\]\h\[\$RESET\] \W\[\$YELLOW\]\$(parse_git_branch) \[\$ORANGE\]>\[\$RESET\] "
 fi
