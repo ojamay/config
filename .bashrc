@@ -86,7 +86,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-setxkbmap -option "nbsp:none"
+#setxkbmap -option "nbsp:none"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
