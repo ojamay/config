@@ -62,17 +62,13 @@ if [ "$color_prompt" = yes ]; then
     if [ "$(id -u)" != 0 ]; then
         PS1="\t \[\033[0;38;5;34m\]\u\[\033[0m\]@\[\033[0;38;5;34m\]\h\[\033[0m\] \W\[\033[33m\]\$(parse_git_branch) \[\033[0;38;5;34m\]>\[\033[0m\] "
     else
-        PATH=$PATH:/root/bin
         PS1="\t \[\033[0;31m\]\u\[\033[0m\]@\[\033[0;31m\]\h\[\033[0m\] \W \[\033[0;31m\]>\[\033[0m\] "
-        alias dpkgpurge="dpkg --purge $(COLUMNS=200 dpkg -l | grep "^rc" | tr -s ' ' | cut -d ' ' -f 2)"
     fi
 else
     if [ "$(id -u)" != 0 ]; then
         PS1="\t \[\033[0;38;5;34m\]\u\[\033[0m\]@\[\033[0;38;5;34m\]\h\[\033[0m\] \W\[\033[33m\]\$(parse_git_branch) \[\033[0;38;5;34m\]>\[\033[0m\] "
     else
-        PATH=$PATH:/root/bin
-        PS1="\t \[\033[0;31m\]\u\[\033[0m\]@\[\033[0;31m\]\h\[\033[0m\] \W \[\033[0;31m\]>\[\033[0m\] 44"
-        alias dpkgpurge="dpkg --purge $(COLUMNS=200 dpkg -l | grep "^rc" | tr -s ' ' | cut -d ' ' -f 2)"
+        PS1="\t \[\033[0;31m\]\u\[\033[0m\]@\[\033[0;31m\]\h\[\033[0m\] \W \[\033[0;31m\]>\[\033[0m\] "
     fi
 fi
 unset color_prompt force_color_prompt
@@ -87,6 +83,11 @@ xterm*|rxvt*)
 esac
 
 #setxkbmap -option "nbsp:none"
+
+if [ "$(id -u)" = 0 ]; then
+    PATH=$PATH:/root/bin
+    alias dpkgpurge="dpkg --purge $(COLUMNS=200 dpkg -l | grep "^rc" | tr -s ' ' | cut -d ' ' -f 2)"
+fi  
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
