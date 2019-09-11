@@ -1,4 +1,4 @@
-# ojm
+# OJM
 alias hgrep='history | grep'
 alias targz='tar -cvfz'
 alias untargz='tar -xvfz'
