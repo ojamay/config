@@ -60,17 +60,19 @@ parse_git_branch() {
 
 if [ "$color_prompt" = yes ]; then
     if [ "$(id -u)" != 0 ]; then
+        PS1="\[\033[0;38;5;34m\]\t \u\[\033[0m\]@\[\033[0;38;5;34m\]\h\[\033[0m\] \W\[\033[33m\]\$(parse_git_branch) \[\033[0;38;5;34m\]>\[\033[0m\] "
         PS1="\[\033[0;38;5;33m\]\t \u\[\033[0m\]@\[\033[0;38;5;33m\]\h\[\033[0m\] \W\[\033[33m\]\$(parse_git_branch) \[\033[0;38;5;33m\]>\[\033[0m\] "
     else
+        PS1="\[\033[0;31m\]\t \u\[\033[0m\]@\[\033[0;31m\]\h\[\033[0m\] \W \[\033[0;31m\]>\[\033[0m\] "
         PS1="\[\033[0;38;5;166m\]\t \u\[\033[0m\]@\[\033[0;38;5;166m\]\h\[\033[0m\] \W \[\033[0;38;5;166m\]>\[\033[0m\] "
-    fi  
+    fi
 else
     if [ "$(id -u)" != 0 ]; then
-        PS1="\[\033[0;38;5;34m\]\t \u\[\033[0m\]@\[\033[0;38;5;34m\]\h\[\033[0m\] \W\[\033[33m\]\$(parse_git_branch) \[\033[0;38;5;34m\]>\[\033[0m\] "
+        PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     else
-        PS1="\[\033[0;31m\]\t \u\[\033[0m\]@\[\033[0;31m\]\h\[\033[0m\] \W \[\033[0;31m\]>\[\033[0m\] "
-    fi  
-fi  
+        PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\# '
+    fi
+fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
