@@ -43,12 +43,3 @@ shopt -s checkwinsize
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 . /etc/bash_completion
 fi
-
-###########################################################################
-# Aliases
-
-alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
-alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[0] "'
-
-alias netstat-listen='netstat -lepunt'
-alias whereami='curl ipinfo.io'
