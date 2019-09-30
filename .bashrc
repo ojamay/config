@@ -41,7 +41,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -114,7 +114,8 @@ alias bashrl="source $HOME/.bashrc"
 export EDITOR="vim"
 export SVN_EDITOR="$EDITOR"
 export GIT_EDITOR="$EDITOR"
-export TERM="rxvt-unicode"
+export TERM="rxvt-unicode" # YMJ to adapt
+#export TERM="cygwin"
 unset SSH_ASKPASS
 
 function randompass {

@@ -1,8 +1,8 @@
-# OJM
+# Basic
 alias hgrep='history | grep'
 alias targz='tar -cvfz'
 alias untargz='tar -xvfz'
-alias tree='tree -C'
+#alias tree='tree -C' # YMJ to adapt
 
 # Alert
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
@@ -26,21 +26,18 @@ alias ssh_scanned='grep sshd.*Did /var/log/auth.log'
 alias ssh_success='grep sshd.*opened /var/log/auth.log'
 
 # Functions
-fxgrep() { sudo find $1 -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*/.svn" -prune -o -path "*~" -prune -o -print0 |sudo xargs -0 grep -si --color=always "$2"; }
+f_fxgrep() { find $1 -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*/.svn" -prune -o -path "*~" -prune -o -print0 | xargs -0 grep -si --color=always "$2"; }
+alias fxgrep=f_fxgrep
 
-alias fxgrep_content='sudo find . -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*/.svn" -prune -o -path "*~" -prune -o -print0 |sudo xargs -0 grep -si --color=always '
+f_tree() { find . | sort | sed -e "s/[^-][^\/]*\//  │/g" -e "s/│\([^ ]\)/├──\1/"; }
+alias tree=f_tree
+f_tred() { find . -type d | sort | sed -e "s/[^-][^\/]*\//  │/g" -e "s/│\([^ ]\)/├──\1/"; }
+alias tred=f_tred
 
-alias fxgrep=fxgrep
-
-tree() { find . | sort | sed -e "s/[^-][^\/]*\//  │/g" -e "s/│\([^ ]\)/├──\1/"; }
-tred() { find . -type d | sort | sed -e "s/[^-][^\/]*\//  │/g" -e "s/│\([^ ]\)/├──\1/"; }
-alias tree=tree
-alias tred=tred
-
-# project
-alias services_restart="
-    sudo service nginx restart;
-    sudo service kraken-iv restart;
-    sudo service uwsgi restart;"
+# Project
+#alias services_restart="
+#    sudo service nginx restart;
+#    sudo service kraken-iv restart;
+#    sudo service uwsgi restart;"
 
 #alias folder='cd ~/folder/'
