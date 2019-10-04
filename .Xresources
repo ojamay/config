@@ -1,0 +1,2 @@
+#include ".config/urxvt.rc"
+#include ".config/xterm.rc"

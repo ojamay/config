@@ -41,7 +41,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-force_color_prompt=yes
+#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -59,11 +59,20 @@ parse_git_branch() {
 }
 
 if [ "$color_prompt" = yes ]; then
+
+    RESET="\[\033[0m\]"
+    DODGERBLUE1="\[\033[0;38;5;33m\]"
+    ORANGERED1="\[\033[0;38;5;202m\]"
+    YELLOW="\[\033[33m\]"
+
     if [ "$(id -u)" != 0 ]; then
-        PS1="\[\033[0;38;5;33m\]\t \u\[\033[0m\]@\[\033[0;38;5;33m\]\h\[\033[0m\] \W\[\033[33m\]\$(parse_git_branch) \[\033[0;38;5;33m\]>\[\033[0m\] "
+	PS1="${DODGERBLUE1}\t \u${RESET}@${DODGERBLUE1}\h${RESET} \W${YELLOW}\$(parse_git_branch) ${DODGERBLUE1}>${RESET} "
     else
-        PS1="\[\033[0;38;5;202m\]\t \u\[\033[0m\]@\[\033[0;38;5;202m\]\h\[\033[0m\] \W\[\033[33m\]\$(parse_git_branch) \[\033[0;38;5;202m\]>\[\033[0m\] "
+	PS1="${ORANGERED1}\t \u${RESET}@${ORANGERED1}\h${RESET} \W${YELLOW}\$(parse_git_branch) ${ORANGERED1}>${RESET} "
     fi
+
+    # colored GCC warnings and errors
+    #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 else
     if [ "$(id -u)" != 0 ]; then
         PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -95,10 +104,13 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
-fi
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 # some more ls aliases
 alias ll='ls -lhF'
@@ -114,8 +126,7 @@ alias bashrl="source $HOME/.bashrc"
 export EDITOR="vim"
 export SVN_EDITOR="$EDITOR"
 export GIT_EDITOR="$EDITOR"
-export TERM="rxvt-unicode" # YMJ to adapt
-#export TERM="cygwin"
+#export TERM="rxvt-unicode"
 unset SSH_ASKPASS
 
 function randompass {

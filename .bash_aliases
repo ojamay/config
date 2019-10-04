@@ -2,7 +2,7 @@
 alias hgrep='history | grep'
 alias targz='tar -cvfz'
 alias untargz='tar -xvfz'
-#alias tree='tree -C' # YMJ to adapt
+alias tree='tree -C'
 
 # Alert
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
@@ -30,14 +30,34 @@ f_fxgrep() { find $1 -path "*/cache" -prune -o -path "*/logs" -prune -o -path "*
 alias fxgrep=f_fxgrep
 
 f_tree() { find . | sort | sed -e "s/[^-][^\/]*\//  │/g" -e "s/│\([^ ]\)/├──\1/"; }
-alias tree=f_tree
+alias tre=f_tree
 f_tred() { find . -type d | sort | sed -e "s/[^-][^\/]*\//  │/g" -e "s/│\([^ ]\)/├──\1/"; }
 alias tred=f_tred
 
-# Project
+# Projects
+
+#alias folder='cd ~/folder/'
+
+alias dcs="./docker-compose.sh"
+export http_proxy=http://###:9090
+export https_proxy=http://###:9090
+export no_proxy=gitlab.domain.eu
+export NO_PROXY=gitlab.domain.eu
+
+alias project="ssh -A -Y user@hostname"
+
 #alias services_restart="
 #    sudo service nginx restart;
 #    sudo service kraken-iv restart;
 #    sudo service uwsgi restart;"
 
-#alias folder='cd ~/folder/'
+#clear_project() {
+#    CURRENT=`pwd`;
+#    cd /home/user/project/
+#    php app/console cache:clear;
+#    php app/console bazinga:js-translation:dump;
+#    php app/console assetic:dump;
+#    php app/console assets:install --symlink web;
+#    cd ${CURRENT};
+#}
+#alias clearproject=clear_project

@@ -1,39 +1,5 @@
-[user]
-    email = ### 
-    name = ###
-[core]
-    editor = vim
-    excludesfile = ~/.gitignore
-[color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
-[color "status"]
-    changed = yellow
-    added = green
-    deleted = red
-    untracked = blue
-[http]
-    sslverify = false
-    #proxy = http://###:8080
-[https]
-    sslverify = false
-    #proxy = http://###:8080
-[url "https://"]
-    insteadOf = git://
-[url "https://github.com/"]
-    insteadOf = git@github.com:
-[push]
-    default = simple
-[diff]
-    # Use mnemonic prefixes (index, work tree, commit, object) instead of the standard a and b notation
-    mnemonicprefix = true
-[merge]
-    tool = vimdiff
-    stat = true
 [alias]
-    alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
     amend = commit --amend
     b = branch
     co = checkout
@@ -56,7 +22,47 @@
     wip = commit -m 'wip'
 
     sync = "!f() { branch=$(git name-rev --name-only HEAD); echo Syncing $branch with master && git checkout master && git pull --ff-only && git checkout $branch && git rebase master && git submodule update --init --recursive; }; f"
-    
+
     outgoing = log origin/master..HEAD
     incoming = "!git fetch $1; git log HEAD..$1/master"
     su = submodule update --init --recursive
+[core]
+    editor = vim
+	excludesfile = ~/.gitignore
+	preloadindex = true # MS Win
+	fscache = true      # MS Win
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[color "status"]
+    changed = yellow
+    added = green
+    deleted = red
+    untracked = blue
+[gc]
+	auto = 256          # MS Win
+[http]
+    #proxy = http://###:8080
+    sslverify = false
+[https]
+    #proxy = http://###:8080
+    sslverify = false
+[git]
+    #proxy = git://###:8080
+[url "https://"]
+    insteadOf = git://
+[url "https://github.com/"]
+    insteadOf = git@github.com:
+[diff]
+    # Use mnemonic prefixes (index, work tree, commit, object) instead of the standard a and b notation
+    mnemonicprefix = true
+[merge]
+    tool = vimdiff
+    stat = true
+[push]
+	default = simple
+[user]
+    email = ###
+    name = ###
