@@ -1,0 +1,69 @@
+#
+# ~/.bash_login
+#
+                                                                    ## CONSTANTS
+export EDITOR=vim
+export TERMINAL=urxvt
+                                                                        ## INTER
+# If not running interactively, don't do anything
+[[ $- != *i* ]]  && return
+                                                                ## CUSTOM PROMPT
+red="\[\e[0;31m\]"
+green="\[\e[0;32m\]"
+blue="\[\e[0;37m\]"
+white="\[\e[0m\]"
+
+if [ `id -u` = 0 ]; then
+	color="${red}"
+        prompt="#"
+
+else
+	color="${green}"
+        prompt="$"
+fi
+
+PS1="${color}[\u \W]\${prompt}${white} "
+                                                              ## AUTO-COMPLETION
+complete -cf man
+complete -cf sudo
+                                                                       ## COLORS
+alias pacman=pacman-color
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+                                                                      ## ALIASES
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+
+alias yaups='sudo yaourt -Sy'   # Synchronize with repostories
+alias yaupg='sudo yaourt -Syu'  # Synchronize with repositories before upgrading packages that are out of date in the local system
+alias yain='sudo yaourt -S'     # Install specific package(s) from the repositories
+alias yains='sudo yaourt -U'    # Install specific packages(s) not from the reposotories but from a file
+alias yare='sudo yaourt -R'     # Remove specific package(s), retaining its configuration(s) and required dependencies
+alias yarem='sudo yaourt -Rns'  # Remove specific package(s), its configuration(s) and unneeded dependencies
+alias yarep='sudo yaourt -Si'   # Display information about a given package in the reposotories
+alias yareps='sudo yaourt -Ss'  # Search for package(s) in the repositories
+alias yaloc='sudo yaourt -Qi'   # Display information about a given package in the local database
+alias yalocs='sudo yaourt -Qs'  # Search for package(s) in the local database
+alias yadiff='sudo yaourt -C'   # Pacdiffviewer
+alias yasupn='sudo yaourt -Sc'  # Supprimer le cache des packages non installed
+alias yaorph='sudo yaourt -Qdt' # List of the (orphan) package(s) that are no more required as dependencies
+alias yalocl='sudo yaourt -Qe'  # List of the packages explicitely installed
+
+alias yastat='sudo yaourt --stats' # Stats
+
+alias refreshkeys='sudo pacman --refresh-keys'
+alias mandb='/usr/bin/mandb --quiet'
+alias soundtest='aplay /usr/share/sounds/alsa/Front_Center.wav'
+alias off='sudo shutdown -h now'
+alias cmatrix='cmatrix -ab -u 2 -C blue'
+                                                                      ## SCRIPTS
+alias wifi='sudo /root/wpa_connect.sh'
+
+alias invaders='/home/yamajo/Documents/shellScripts/invaders'
+alias colorscript='/home/yamajo/Documents/shellScripts/colorscript'
+alias colors='/home/yamajo/Documents/shellScripts/colortheme'
+alias pipes='/home/yamajo/Documents/shellScripts/pipes'
+
