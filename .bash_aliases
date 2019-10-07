@@ -38,13 +38,13 @@ alias tred=f_tred
 
 #alias folder='cd ~/folder/'
 
-alias dcs="./docker-compose.sh"
-export http_proxy=http://###:9090
-export https_proxy=http://###:9090
-export no_proxy=gitlab.domain.eu
-export NO_PROXY=gitlab.domain.eu
+#alias dcs="./docker-compose.sh"
+#export http_proxy=http://###:9090
+#export https_proxy=http://###:9090
+#export no_proxy=gitlab.domain.eu
+#export NO_PROXY=gitlab.domain.eu
 
-alias project="ssh -A -Y user@hostname"
+#alias project="ssh -A -Y user@hostname"
 
 #alias services_restart="
 #    sudo service nginx restart;

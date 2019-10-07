@@ -43,18 +43,18 @@
     untracked = blue
 [gc]
 	auto = 256          # MS Win
-[http]
-    #proxy = http://###:8080
-    sslverify = false
-[https]
-    #proxy = http://###:8080
-    sslverify = false
-[git]
-    #proxy = git://###:8080
-[url "https://"]
-    insteadOf = git://
-[url "https://github.com/"]
-    insteadOf = git@github.com:
+#[http]
+#    #proxy = http://###:8080
+#    sslverify = false
+#[https]
+#    #proxy = http://###:8080
+#    sslverify = false
+#[git]
+#    #proxy = git://###:8080
+#[url "https://"]
+#    insteadOf = git://
+#[url "https://github.com/"]
+#    insteadOf = git@github.com:
 [diff]
     # Use mnemonic prefixes (index, work tree, commit, object) instead of the standard a and b notation
     mnemonicprefix = true
