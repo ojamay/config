@@ -63,6 +63,7 @@ if [ "$color_prompt" = yes ]; then
     RESET="\[\033[0m\]"
     DODGERBLUE1="\[\033[0;38;5;33m\]"
     ORANGERED1="\[\033[0;38;5;202m\]"
+    RED="\[\033[1;31m\]"
     YELLOW="\[\033[33m\]"
 
     if [ "$(id -u)" != 0 ]; then
