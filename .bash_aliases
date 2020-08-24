@@ -3,6 +3,7 @@ alias hgrep='history | grep'
 alias targz='tar -cvfz'
 alias untargz='tar -xvfz'
 alias tree='tree -C'
+alias beep='printf \\a'
 
 # Alert
 alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
